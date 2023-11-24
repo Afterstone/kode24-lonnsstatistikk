@@ -1,0 +1,51 @@
+[build-system]
+build-backend = "flit_core.buildapi"
+requires = ["wheel", "flit_core >=3.7.1,<4"]
+
+[project]
+name = "lonn"
+version = "0.1.0"
+description = ""
+requires-python = ">=3.10"
+classifiers = [ "Private :: Do Not Upload" ]
+dependencies = [
+    "ipykernel",
+    "matplotlib",
+    "numpy",
+    "optuna",
+    "optuna-dashboard",
+    "scikit-learn",
+    "scipy",
+    "seaborn",
+    "tqdm",
+]
+
+[project.optional-dependencies]
+lint = [
+    "autopep8",
+    "flake8",
+    "isort",
+    "mypy",
+]
+test = [
+    "pytest",
+    "pytest-cov",
+]
+dev = [
+    "lonn[test]",
+    "lonn[lint]",
+    "pre-commit",
+    "ipykernel",
+    "ipywidgets",
+    "jupyter",
+]
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-rA -q"
+testpaths = [
+    "tests"
+]
+
+[tool.flit.module]
+name = "lonn"
